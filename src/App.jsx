@@ -1,48 +1,35 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import AppLayout from "./components/AppLayout.jsx";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import ControlesPage from "./pages/ControlesPage.jsx";
-import DashboardPage from "./pages/DashboardPage.jsx";
-import EditarPacientePage from "./pages/EditarPacientePage.jsx";
-import LoginPage from "./pages/LoginPage.jsx";
-import NotFoundPage from "./pages/NotFoundPage.jsx";
-import PacientePage from "./pages/PacientePage.jsx";
-import PacientesPage from "./pages/PacientesPage.jsx";
-import PerfilPage from "./pages/PerfilPage.jsx";
-import RegistrarPacientePage from "./pages/RegistrarPacientePage.jsx";
-import UsuariosPage from "./pages/UsuariosPage.jsx";
+import Guard from "./components/Guard";
+import Agenda from "./pages/Agenda";
+import Controles from "./pages/Controles";
+import Dashboard from "./pages/Dashboard";
+import EditarPaciente from "./pages/EditarPaciente";
+import Login from "./pages/Login";
+import Paciente from "./pages/Paciente";
+import Pacientes from "./pages/Pacientes";
+import Perfil from "./pages/Perfil";
+import RegistrarPaciente from "./pages/RegistrarPaciente";
+import Usuarios from "./pages/Usuarios";
 
-// Roles que pueden crear y modificar pacientes.
-const OPERATIVOS = ["recepcionista", "profesional"];
+const PROFESIONAL = ["profesional"];
+const TODOS = ["administrador", "recepcionista", "profesional"];
 
-// Mapa de navegación de la app (React Router).
+const protegida = (roles, page) => <Guard roles={roles}>{page}</Guard>;
+
 export default function App() {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
-
-      {/* Todo lo que está aquí dentro exige sesión iniciada */}
-      <Route element={<ProtectedRoute />}>
-        <Route element={<AppLayout />}>
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/pacientes" element={<PacientesPage />} />
-          <Route path="/pacientes/:id" element={<PacientePage />} />
-          <Route path="/controles" element={<ControlesPage />} />
-          <Route path="/perfil" element={<PerfilPage />} />
-
-          <Route element={<ProtectedRoute roles={OPERATIVOS} />}>
-            <Route path="/pacientes/nuevo" element={<RegistrarPacientePage />} />
-            <Route path="/pacientes/:id/editar" element={<EditarPacientePage />} />
-          </Route>
-
-          <Route element={<ProtectedRoute roles={["administrador"]} />}>
-            <Route path="/usuarios" element={<UsuariosPage />} />
-          </Route>
-        </Route>
-      </Route>
-
-      <Route path="*" element={<NotFoundPage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={protegida(PROFESIONAL, <Dashboard />)} />
+      <Route path="/pacientes" element={protegida(PROFESIONAL, <Pacientes />)} />
+      <Route path="/pacientes/nuevo" element={protegida(PROFESIONAL, <RegistrarPaciente />)} />
+      <Route path="/pacientes/:id" element={protegida(PROFESIONAL, <Paciente />)} />
+      <Route path="/pacientes/:id/editar" element={protegida(PROFESIONAL, <EditarPaciente />)} />
+      <Route path="/controles" element={protegida(PROFESIONAL, <Controles />)} />
+      <Route path="/agenda" element={protegida(["recepcionista"], <Agenda />)} />
+      <Route path="/usuarios" element={protegida(["administrador"], <Usuarios />)} />
+      <Route path="/perfil" element={protegida(TODOS, <Perfil />)} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
