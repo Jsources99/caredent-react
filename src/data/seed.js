@@ -1,5 +1,4 @@
-// Datos de prueba (ficticios). Se copian a localStorage la primera vez que se abre la app.
-
+// Datos de prueba ficticios (idénticos a la versión original)
 export function seedPatients() {
   return [
     {

@@ -1,30 +1,23 @@
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
-import { attemptLogin, clearSession, getSession } from "../services/storage.js";
+import { createContext, useContext, useState } from "react";
+import { attemptLogin, clearSession, getSession } from "../data/store";
 
 const AuthContext = createContext(null);
 
-// Guarda la sesión en el estado y la comparte con toda la app (Context API).
 export function AuthProvider({ children }) {
-  const [session, setSession] = useState(() => getSession());
+  const [session, setSession] = useState(getSession);
 
-  const login = useCallback((usuario, clave, rol) => {
-    const resultado = attemptLogin(usuario, clave, rol);
-    if (resultado.ok) setSession(resultado.session);
-    return resultado;
-  }, []);
+  const login = (usuario, clave, rol) => {
+    const result = attemptLogin(usuario, clave, rol);
+    if (result.ok) setSession(result.session);
+    return result;
+  };
 
-  const logout = useCallback(() => {
+  const logout = () => {
     clearSession();
     setSession(null);
-  }, []);
+  };
 
-  const value = useMemo(() => ({ session, login, logout }), [session, login, logout]);
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ session, login, logout }}>{children}</AuthContext.Provider>;
 }
 
-export function useAuth() {
-  const ctx = useContext(AuthContext);
-  if (!ctx) throw new Error("useAuth debe usarse dentro de <AuthProvider>");
-  return ctx;
-}
+export const useAuth = () => useContext(AuthContext);

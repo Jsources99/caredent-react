@@ -1,23 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { HashRouter } from "react-router-dom";
+import App from "./App";
+import { AuthProvider } from "./context/AuthContext";
+import { ToastProvider } from "./context/ToastContext";
+import "./styles.css";
 
-// Bootstrap primero y nuestros estilos después, para poder ajustar su apariencia.
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./styles/custom.css";
-
-import App from "./App.jsx";
-import { AuthProvider } from "./context/AuthContext.jsx";
-import { ToastProvider } from "./context/ToastContext.jsx";
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <BrowserRouter>
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <HashRouter>
       <AuthProvider>
         <ToastProvider>
           <App />
         </ToastProvider>
       </AuthProvider>
-    </BrowserRouter>
-  </React.StrictMode>
+    </HashRouter>
+  </StrictMode>
 );
