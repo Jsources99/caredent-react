@@ -1,0 +1,349 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/utils.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> utils.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">63.63% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>42/66</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">52.72% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>29/55</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">60% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>6/10</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">71.73% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>33/46</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line medium'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function todayISO() {
+  const d = new Date();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${d.getFullYear()}-${m}-${day}`;
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >formatDate(</span>iso) {
+<span class="cstat-no" title="statement not covered" >  if (!iso || iso === "—") <span class="cstat-no" title="statement not covered" >return "—";</span></span>
+  const [y, m, d] = <span class="cstat-no" title="statement not covered" >iso.split("-");</span>
+<span class="cstat-no" title="statement not covered" >  if (!y || !m || !d) <span class="cstat-no" title="statement not covered" >return iso;</span></span>
+<span class="cstat-no" title="statement not covered" >  return `${d}-${m}-${y}`;</span>
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >initials(</span>nombre = <span class="branch-0 cbranch-no" title="branch not covered" >"")</span> {
+<span class="cstat-no" title="statement not covered" >  return nombre.split(" ").filter(Boolean).slice(0, 2).map(<span class="fstat-no" title="function not covered" >(p</span>) =&gt; <span class="cstat-no" title="statement not covered" >p[0])</span>.join("").toUpperCase();</span>
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >calcularEdad(</span>fechaISO) {
+<span class="cstat-no" title="statement not covered" >  if (!fechaISO) <span class="cstat-no" title="statement not covered" >return null;</span></span>
+  const nac = <span class="cstat-no" title="statement not covered" >new Date(fechaISO);</span>
+<span class="cstat-no" title="statement not covered" >  if (isNaN(nac)) <span class="cstat-no" title="statement not covered" >return null;</span></span>
+  const hoy = <span class="cstat-no" title="statement not covered" >new Date();</span>
+  let edad = <span class="cstat-no" title="statement not covered" >hoy.getFullYear() - nac.getFullYear();</span>
+  const m = <span class="cstat-no" title="statement not covered" >hoy.getMonth() - nac.getMonth();</span>
+<span class="cstat-no" title="statement not covered" >  if (m &lt; 0 || (m === 0 &amp;&amp; hoy.getDate() &lt; nac.getDate())) <span class="cstat-no" title="statement not covered" >edad--;</span></span>
+<span class="cstat-no" title="statement not covered" >  return edad;</span>
+}
+&nbsp;
+export const ROL_LABEL = {
+  administrador: "Administrador",
+  recepcionista: "Recepcionista",
+  profesional: "Médico / Profesional",
+};
+&nbsp;
+export const ESTADOS = {
+  activo: { label: "Activo", badge: "badge--ok" },
+  "en-tratamiento": { label: "En tratamiento", badge: "badge--warn" },
+  pendiente: { label: "Pendiente", badge: "badge--warn" },
+  inactivo: { label: "Inactivo", badge: "badge--muted" },
+  "en-curso": { label: "En curso", badge: "badge--warn" },
+  finalizado: { label: "Finalizado", badge: "badge--ok" },
+  confirmado: { label: "Confirmado", badge: "badge--ok" },
+  vencido: { label: "Vencido", badge: "badge--danger" },
+};
+&nbsp;
+// Un control pendiente cuya fecha ya pasó se muestra como "vencido".
+export function estadoControl(control) {
+  if (!control) return null;
+  if (control.estado === "pendiente" &amp;&amp; control.fecha &lt; todayISO()) return "vencido";
+  return control.estado;
+}
+&nbsp;
+/* ---- Validaciones ---- */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const RUT_RE = /^\d{1,2}\.\d{3}\.\d{3}-[\dkK]$/;
+const PHONE_RE = /^\+?\d[\d\s]{6,}$/;
+&nbsp;
+const normRut = (r) =&gt; r.replace(/\./g, "").toUpperCase();
+&nbsp;
+function rutDvOk(rut) {
+  const [cuerpo, dv] = normRut(rut).split("-");
+  let suma = 0;
+  let mult = 2;
+  for (let i = cuerpo.length - 1; i &gt;= 0; i--) {
+    suma += Number(cuerpo[i]) * mult;
+    mult = mult === 7 ? 2 : mult + 1;
+  }
+  const r = 11 - (suma % 11);
+  return dv === (r === 11 ? <span class="branch-0 cbranch-no" title="branch not covered" >"0" </span>: r === 10 ? <span class="branch-0 cbranch-no" title="branch not covered" >"K" </span>: String(r));
+}
+&nbsp;
+// Valida los datos de un paciente. `originalRut` permite editar fichas de
+// demostración sin obligar a cambiar su RUT ficticio.
+export function validarPaciente(v, { pacientes, selfId = null, originalRut = null }) {
+  const e = {};
+  if (!v.nombre.trim()) e.nombre = "Ingresa el nombre del paciente.";
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!v.apellidos.trim()) <span class="cstat-no" title="statement not covered" >e.apellidos = "Ingresa los apellidos del paciente.";</span>
+  const rut = v.rut.trim();
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!RUT_RE.test(rut)) <span class="cstat-no" title="statement not covered" >e.rut = "Ingresa un RUT válido, formato 12.345.678-9.";</span>
+  else if (pacientes.some((p) =&gt; p.id !== selfId &amp;&amp; normRut(p.rut) === normRut(rut))) e.rut = "Ya existe un paciente con ese RUT.";
+  else if (rut !== originalRut &amp;&amp; !rutDvOk(rut)) e.rut = "El dígito verificador del RUT no es correcto.";
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!v.fechaNacimiento) <span class="cstat-no" title="statement not covered" >e.fechaNacimiento = "Selecciona la fecha de nacimiento.";</span>
+  else <span class="missing-if-branch" title="if path not taken" >I</span>if (v.fechaNacimiento &gt; todayISO()) <span class="cstat-no" title="statement not covered" >e.fechaNacimiento = "La fecha de nacimiento no puede ser futura.";</span>
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!PHONE_RE.test(v.telefono.trim())) <span class="cstat-no" title="statement not covered" >e.telefono = "Ingresa un teléfono de contacto válido.";</span>
+  if (!EMAIL_RE.test(v.correo.trim())) e.correo = "Ingresa un correo electrónico válido.";
+  return e;
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-10-17T18:35:32.885Z
+            </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
+</html>
+    

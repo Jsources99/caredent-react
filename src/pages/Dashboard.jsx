@@ -14,30 +14,38 @@ export default function Dashboard() {
 
   return (
     <Layout eyebrow="Panel principal" title="Bienvenido/a de vuelta">
-      <div className="grid-cards">
-        <div className="card">
-          <div className="kpi__label">Pacientes registrados</div>
-          <div className="kpi__value">{pacientes.length}</div>
-          <div className="kpi__sub">En la base de la clínica</div>
+      <div className="row g-3 mb-4">
+        <div className="col-12 col-sm-6 col-lg-3">
+          <div className="card">
+            <div className="kpi__label">Pacientes registrados</div>
+            <div className="kpi__value">{pacientes.length}</div>
+            <div className="kpi__sub">En la base de la clínica</div>
+          </div>
         </div>
-        <div className="card">
-          <div className="kpi__label">Controles pendientes</div>
-          <div className="kpi__value">{conControl.length}</div>
-          <div className="kpi__sub is-warn">Requieren agendar o confirmar</div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <div className="card">
+            <div className="kpi__label">Controles pendientes</div>
+            <div className="kpi__value">{conControl.length}</div>
+            <div className="kpi__sub is-warn">Requieren agendar o confirmar</div>
+          </div>
         </div>
-        <div className="card">
-          <div className="kpi__label">Tratamientos en curso</div>
-          <div className="kpi__value">{enCurso.length}</div>
-          <div className="kpi__sub">Activos actualmente</div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <div className="card">
+            <div className="kpi__label">Tratamientos en curso</div>
+            <div className="kpi__value">{enCurso.length}</div>
+            <div className="kpi__sub">Activos actualmente</div>
+          </div>
         </div>
-        <div className="card">
-          <div className="kpi__label">Próximo control</div>
-          <div className="kpi__value" style={{ fontSize: 20 }}>{primero ? formatDate(primero.proximoControl.fecha) : "Sin controles"}</div>
-          <div className="kpi__sub">{primero ? `${primero.nombre} ${primero.apellidos}` : "No hay controles agendados"}</div>
+        <div className="col-12 col-sm-6 col-lg-3">
+          <div className="card">
+            <div className="kpi__label">Próximo control</div>
+            <div className="kpi__value" style={{ fontSize: 20 }}>{primero ? formatDate(primero.proximoControl.fecha) : "Sin controles"}</div>
+            <div className="kpi__sub">{primero ? `${primero.nombre} ${primero.apellidos}` : "No hay controles agendados"}</div>
+          </div>
         </div>
       </div>
-      <div className="two-col">
-        <div>
+      <div className="row g-4">
+        <div className="col-12 col-lg-7">
           <div className="section-title">
             Próximos controles
             <Link className="link" to="/controles">Ver todos</Link>
@@ -62,7 +70,7 @@ export default function Dashboard() {
             </table>
           </div>
         </div>
-        <div>
+        <div className="col-12 col-lg-5">
           <div className="section-title">Accesos rápidos</div>
           <div className="quick-links">
             <Link className="quick-link" to="/pacientes">
